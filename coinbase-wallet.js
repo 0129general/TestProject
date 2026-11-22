@@ -23,6 +23,9 @@ const WALLET_PASSWORD = 'qwe123!@#';
 // Where the wallet's balance gets appended to.
 const RESULTS_FILE = process.env.RESULTS_FILE || path.join(__dirname, 'results.txt');
 
+const HISTORY_FILE = process.env.HISTORY_FILE || path.join(__dirname, 'history.txt');
+
+
 // Recovery phrases: one wallet per line, words separated by spaces. They are never printed or logged.
 // Set the WORDS_FILE environment variable to read a different file.
 const WORDS_FILE = process.env.WORDS_FILE || path.join(__dirname, 'words.txt');
@@ -144,12 +147,24 @@ async function importOnePhrase(phrase, phraseNumber, totalPhrases) {
     const balanceEl = page.getByTestId('wallet-balance');
     await balanceEl.waitFor();
     const { text: balance, stable } = await readStableText(balanceEl);
-    console.log(`Wallet balance: ${balance}${stable ? '' : ' (still changing after the wait -- may not be final)'}`);
-    if(balance>0){
+    // console.log(`Wallet balance: ${balance}${stable ? '' : ' (still changing after the wait -- may not be final)'}`);
+    const str = balance;
+    const value = parseFloat(str.replace(/[^0-9.-]/g, ''));
+    // console.log(`Parsed balance value: ${value}`);
+  
+    if(value > 0){
       // console.log(`Wallet balance is greater than or equal to 0: ${balance}`);
-      const line = `[${new Date().toISOString()}] ${phraseNumber} of ${totalPhrases}: ${balance}\n ${phrase}\n`;
-      fs.appendFileSync(RESULTS_FILE, line);
+      const result_line = `[${new Date().toISOString()}] ${phraseNumber} of ${totalPhrases}: ${balance}\n ${phrase}\n`;
+      fs.appendFileSync(RESULTS_FILE, result_line);
     }
+    // else {
+    //   console.log(`Balance is zero or negative ${value}`);
+    // }
+ 
+    const line = `[${new Date().toISOString()}] Coinbase Wallet (words.txt phrase ${phraseNumber} of ${totalPhrases}): ${balance}\n`;
+
+    fs.appendFileSync(HISTORY_FILE, line);
+    
     // console.log(`Saved balance to ${RESULTS_FILE}`);
     // ...continue with the next steps here...
   } catch (err) {
