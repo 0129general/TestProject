@@ -44,6 +44,7 @@ function readRecoveryPhrases(file) {
 }
 
 async function main() {
+  const startTime = Date.now();
   // Load the recovery phrases first, so a missing or empty words file fails before a browser opens.
   const phrases = readRecoveryPhrases(WORDS_FILE);
   loadedPhrases.push(...phrases);
@@ -67,6 +68,16 @@ async function main() {
     rl.close();
     await context.close();
   }
+
+  console.log(`Total time: ${formatDuration(Date.now() - startTime)}`);
+}
+
+// Formats a millisecond duration as e.g. "1m 23.4s" or "23.4s".
+function formatDuration(ms) {
+  const totalSeconds = ms / 1000;
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = (totalSeconds % 60).toFixed(1);
+  return minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
 }
 
 // Returns a 1-based phrase index from an env var string, clamped to [1, max]. Falls back to
@@ -217,8 +228,6 @@ async function importOnePhrase(phrase, phraseNumber, totalPhrases) {
       // console.log(`Saved balance to ${RESULTS_FILE}`);
 
     }
-
-    // ...balance capture isn't wired up yet -- see the note after this function...
   } catch (err) {
     await context.close().catch(() => {});
     throw err;
