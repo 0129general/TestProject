@@ -1,0 +1,2 @@
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{};e.SENTRY_RELEASE={id:"26.45.1"};var d=(new e.Error).stack;d&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[d]="36152bbc-183e-46d9-b825-ebcfd8fba16e",e._sentryDebugIdIdentifier="sentry-dbid-36152bbc-183e-46d9-b825-ebcfd8fba16e")}catch(e){}}();import{i as e}from"./store-CuhVzltU.js";var d=()=>e(e=>e.fiat.items);export{d as t};
+//# sourceMappingURL=useFiats-DE3Npbq0.js.map

@@ -1,0 +1,2 @@
+function e(e){return function(e){return{enabled:e.default,isDefault:!0}}(e)}!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{};e.SENTRY_RELEASE={id:"26.45.1"};var n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="1b522804-0e56-4c1e-9f25-cb22f3c0edc9",e._sentryDebugIdIdentifier="sentry-dbid-1b522804-0e56-4c1e-9f25-cb22f3c0edc9")}catch(e){}}();export{e as t};
+//# sourceMappingURL=useIsFeatureEnabled-B2T4B-2S.js.map

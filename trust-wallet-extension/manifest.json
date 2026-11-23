@@ -1,0 +1,39 @@
+{
+   "action": {
+      "default_icon": "icons/light/32px.png",
+      "default_popup": "popup.html",
+      "default_title": "Trust Wallet"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "exclude_matches": [ "*://*.amazon-adsystem.com/*", "*://*.arkoselabs.com/*", "*://*.calendar.google.com/*", "*://*.captcha-delivery.com/*", "*://*.challenges.cloudflare.com/*", "*://*.docs.google.com/*", "*://*.doubleclick.net/*", "*://*.drive.google.com/*", "*://*.facebook.com/*", "*://*.fb.com/*", "*://*.funcaptcha.com/*", "*://*.googlesyndication.com/*", "*://*.hcaptcha.com/*", "*://*.instagram.com/*", "*://*.keep.google.com/*", "*://*.linkedin.com/*", "*://*.magic.link/*", "*://*.mail.google.com/*", "*://*.meet.google.com/*", "*://*.messenger.com/*", "*://*.meta.com/*", "*://*.recaptcha.net/recaptcha/*", "*://*.snapchat.com/*", "*://*.threads.net/*", "*://*.tiktok.com/*", "*://*.twitter.com/*", "*://*.whatsapp.com/*", "*://*.workplace.com/*", "*://*.x.com/*", "*://www.google.com/recaptcha/*" ],
+      "js": [ "content-scripts/content.js" ],
+      "matches": [ "http://127.0.0.1/*", "http://localhost/*", "https://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+   },
+   "default_locale": "en",
+   "description": "__MSG_appDesc__",
+   "host_permissions": [ "https://*/*", "http://localhost/*", "http://127.0.0.1/*" ],
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnO0ipv3MCMVTQzXWnXEy+b1H4UKRZlxfYBTC7pFOP0PuNtInwuzcWbJY4HljExt+y6lzhIjRRD/h9n/RW695OcST95CPKaEc5/tBvaecfbmCg+/oECKQcF9QvmEX0QWlvfurLJ57t5Nh10SUqpCuqWQyCjHAPPibMXzLvRd0HzB5kwk3k5N727VJejjCy+dieExTKb0Ya7PtzDO/UuMAva6lfMpfnhSeA8+MSEf0NDcepuIhYDCUyP8DRhly/Ya32t98UGWU9RlVJvLtyptVBeYV79aKr5LIa/81AZYTkmwbXhTNCCBKt/03IHZy+/IcxNB1EISe4OoOoe6cT4ArEQIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "114",
+   "name": "__MSG_appName__",
+   "permissions": [ "alarms", "tabs", "storage", "unlimitedStorage", "clipboardWrite", "notifications", "scripting", "sidePanel", "gcm" ],
+   "side_panel": {
+      "default_path": "sidepanel.html"
+   },
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "26.45.1"
+}

@@ -1,0 +1,2 @@
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{};e.SENTRY_RELEASE={id:"3.151.0-a0c963"};var d=(new e.Error).stack;d&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[d]="aea4d2fa-3d4f-4857-bb48-858de97fcad9",e._sentryDebugIdIdentifier="sentry-dbid-aea4d2fa-3d4f-4857-bb48-858de97fcad9")}catch(e){}}(),(()=>{"use strict";window.coinbaseSolana=void 0})();
+//# sourceMappingURL=requestSolanaProviderCleanup.js.map

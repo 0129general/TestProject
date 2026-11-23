@@ -10,5 +10,5 @@ history.txt
 # Vendor extension bundles copied from Chrome (tens of MB of third-party minified JS each).
 # Reproducible any time: see trust-wallet-playwright-setup / coinbase-wallet-playwright-setup
 # memory notes for the copy-from-Chrome steps.
-trust-wallet-extension/
-coinbase-wallet-extension/
+# trust-wallet-extension/
+# coinbase-wallet-extension/

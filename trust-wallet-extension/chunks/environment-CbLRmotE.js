@@ -1,0 +1,2 @@
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{};e.SENTRY_RELEASE={id:"26.45.1"};var d=(new e.Error).stack;d&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[d]="96cfdbe8-eb65-4f1f-9a59-7e3b8bbfd3b4",e._sentryDebugIdIdentifier="sentry-dbid-96cfdbe8-eb65-4f1f-9a59-7e3b8bbfd3b4")}catch(e){}}();var e=["alpha","beta","qa"].includes("production");export{e as t};
+//# sourceMappingURL=environment-CbLRmotE.js.map

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- translate="no": the wallet UI must never be auto-translated. Chrome/Opera page translation
+     moves DOM text nodes, and React's commit phase then throws NotFoundError on removeChild
+     (EXTENSION-WALLET-4GT) — besides translating amounts/addresses being unsafe on its own. -->
+<!-- auto (like home/index.html), NOT the popup's fixed 375x572: the side panel is sized by the
+     browser, and a fixed html height CLIPS the page when a modal's scroll-lock sets
+     overflow:hidden on <html> — everything below 572px went black behind every dialog. -->
+<html translate="no" style="width: auto; height: auto">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trust Wallet</title>
+    <script src="/boot-theme.js"></script>
+    <!-- Token/chain logos: open the CDN connection during boot so the first logo skips the
+         ~0.8s TCP+TLS handshake (the CDN sends no cache headers; see uikit/utils/imageCache). -->
+    <link rel="preconnect" href="https://assets-cdn.trustwallet.com" crossorigin="">
+    <link rel="dns-prefetch" href="https://assets-cdn.trustwallet.com">
+    <style>
+      @keyframes tw-initial-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes tw-initial-reveal {
+        to {
+          opacity: 1;
+        }
+      }
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 2147483647;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fcfcfc;
+      }
+      .tw-initial-loader__spinner {
+        box-sizing: border-box;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: 3px solid #999cab52;
+        border-top: 3px solid #392ffa;
+        opacity: 0;
+        animation:
+          tw-initial-spin 1s linear infinite,
+          tw-initial-reveal 0s 200ms forwards;
+      }
+      :root[data-theme^='dark'] #initial-loader {
+        background-color: #0f111a;
+      }
+      :root[data-theme^='dark'] .tw-initial-loader__spinner {
+        border-color: #6675b252;
+        border-top-color: #463cfa;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .tw-initial-loader__spinner {
+          animation: tw-initial-reveal 0s 200ms forwards;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/chunks/sidepanel-BJuHg2Ry.js"></script>
+    <link rel="modulepreload" crossorigin href="/chunks/dist-DU5seTHm.js">
+    <link rel="modulepreload" crossorigin href="/chunks/dist-VBzpRx0l.js">
+    <link rel="modulepreload" crossorigin href="/chunks/react-BMCv8LrQ.js">
+    <link rel="modulepreload" crossorigin href="/chunks/logger-DAVuHUuS.js">
+    <link rel="modulepreload" crossorigin href="/chunks/foreignDomMutationGuard-DgL4DgQq.js">
+    <link rel="modulepreload" crossorigin href="/chunks/operationDiagnostics-Chn6IjKi.js">
+    <link rel="modulepreload" crossorigin href="/chunks/preload-helper-Xn6ZgKKN.js">
+    <link rel="modulepreload" crossorigin href="/chunks/constants-B8k7Fqsk.js">
+  </head>
+  <body style="width: auto; height: auto; margin: 0">
+    <div id="initial-loader">
+      <div class="tw-initial-loader__spinner"></div>
+    </div>
+    <div id="root" data-id="root"></div>
+  </body>
+</html>

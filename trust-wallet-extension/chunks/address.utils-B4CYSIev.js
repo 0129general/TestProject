@@ -1,0 +1,2 @@
+function e(e){return e?.startsWith("bitcoincash:")?e.split(":")[1]:e}!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{};e.SENTRY_RELEASE={id:"26.45.1"};var d=(new e.Error).stack;d&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[d]="460df8a3-1877-4abd-a6df-30648a6fcefb",e._sentryDebugIdIdentifier="sentry-dbid-460df8a3-1877-4abd-a6df-30648a6fcefb")}catch(e){}}();export{e as t};
+//# sourceMappingURL=address.utils-B4CYSIev.js.map
